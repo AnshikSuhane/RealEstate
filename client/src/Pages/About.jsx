@@ -1,3 +1,5 @@
+import ChatBot from "./chatbot";
+
 export default function About() {
     return (
       <div className="py-16">
@@ -21,7 +23,7 @@ export default function About() {
                 src="https://images.unsplash.com/photo-1560520653-9e0e4c89eb11?auto=format&fit=crop&w=1000&q=80" 
                 alt="Team Meeting"
                 className="absolute inset-0 w-full h-full object-cover"
-              />
+                />
             </div>
           </div>
   
@@ -52,6 +54,7 @@ export default function About() {
             </div>
           </div>
         </div>
+        <ChatBot/>
       </div>
     );
   }

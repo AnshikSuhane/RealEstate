@@ -3,6 +3,7 @@ import { MapPin, Phone, Mail } from 'lucide-react';
 import { Input } from '../ui/input';
 import { Button } from '../ui/button';
 import { Textarea } from '../ui/textarea';
+import ChatBot from '@/Pages/chatbot';
 
 export default function Contact() {
   return (
@@ -29,7 +30,7 @@ export default function Contact() {
                   <Input placeholder="Doe" />
                 </div>
               </div>
-              
+              <ChatBot/>
               <div>
                 <label className="text-sm font-medium mb-2 block">Email</label>
                 <Input type="email" placeholder="john@example.com" />

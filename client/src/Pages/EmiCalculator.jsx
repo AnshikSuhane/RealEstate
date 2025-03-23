@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Calculator, Calendar, DollarSign, Percent } from "lucide-react";
 import React, { useState } from "react";
+import ChatBot from "./chatbot";
 
 const EmiCalculator = () => {
   const [formData, setFormData] = useState({
@@ -26,6 +27,7 @@ const EmiCalculator = () => {
 
   return (
     <div className="container py-8">
+      <ChatBot/>
       <div className="max-w-3xl mx-auto">
         <div className="flex items-center mb-8">
           <Calculator className="h-8 w-8 mr-3 text-blue-600" />

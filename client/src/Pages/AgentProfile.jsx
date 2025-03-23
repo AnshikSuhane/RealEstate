@@ -1,8 +1,8 @@
 /* eslint-disable no-unused-vars */
-import { useParams } from 'react-router-dom';
+import { useParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { MapPin, Mail, Phone, Star } from 'lucide-react';
+import { MapPin, Mail, Phone, Star } from "lucide-react";
 
 export default function AgentProfile() {
   const { id } = useParams();
@@ -15,7 +15,8 @@ export default function AgentProfile() {
     experience: "10+ years",
     specialization: "Luxury Properties",
     location: "Seattle, WA",
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=400&q=80",
+    image:
+      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=400&q=80",
     phone: "(555) 123-4567",
     email: "sarah.j@propertyfinder.com",
     bio: "With over a decade of experience in luxury real estate, Sarah has established herself as one of Seattle's premier real estate agents. Her deep understanding of the local market and commitment to client satisfaction have earned her numerous accolades.",
@@ -37,14 +38,16 @@ export default function AgentProfile() {
         title: "Modern Downtown Apartment",
         price: 450000,
         location: "Downtown, Seattle",
-        image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=400&q=80",
+        image:
+          "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=400&q=80",
       },
       {
         id: 2,
         title: "Luxury Waterfront Villa",
         price: 1250000,
         location: "Waterfront, Miami",
-        image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=400&q=80",
+        image:
+          "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=400&q=80",
       },
     ],
   };
@@ -63,7 +66,9 @@ export default function AgentProfile() {
               />
               <div>
                 <h1 className="text-3xl font-bold mb-2">{agent.name}</h1>
-                <p className="text-xl text-muted-foreground mb-4">{agent.title}</p>
+                <p className="text-xl text-muted-foreground mb-4">
+                  {agent.title}
+                </p>
                 <div className="flex items-center space-x-4 text-sm">
                   <div className="flex items-center">
                     <MapPin className="h-4 w-4 mr-1" />
@@ -78,17 +83,26 @@ export default function AgentProfile() {
             </div>
           </div>
           <div className="space-y-4">
-            <Button className="w-full">
+            <Button
+              className="w-full"
+              onClick={() => (window.location.href = `tel:${agent.phone}`)}
+            >
               <Phone className="h-4 w-4 mr-2" />
               Call Agent
             </Button>
-            <Button variant="outline" className="w-full">
+            <Button
+              variant="outline"
+              className="w-full"
+              onClick={() =>
+                (window.location.href = `mailto:${agent.email}?subject=Inquiry about properties&body=Hi ${agent.name}, I am interested in your listings. Please provide more details.`)
+              }
+            >
               <Mail className="h-4 w-4 mr-2" />
               Email Agent
             </Button>
           </div>
         </div>
-
+      
         {/* Agent Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
           <Card className="p-4 text-center">
@@ -96,15 +110,23 @@ export default function AgentProfile() {
             <p className="text-sm text-muted-foreground">Total Sales</p>
           </Card>
           <Card className="p-4 text-center">
-            <h3 className="text-lg font-semibold">{agent.stats.activeListings}</h3>
+            <h3 className="text-lg font-semibold">
+              {agent.stats.activeListings}
+            </h3>
             <p className="text-sm text-muted-foreground">Active Listings</p>
           </Card>
           <Card className="p-4 text-center">
-            <h3 className="text-lg font-semibold">{agent.stats.soldLastYear}</h3>
-            <p className="text-sm text-muted-foreground">Properties Sold (2023)</p>
+            <h3 className="text-lg font-semibold">
+              {agent.stats.soldLastYear}
+            </h3>
+            <p className="text-sm text-muted-foreground">
+              Properties Sold (2023)
+            </p>
           </Card>
           <Card className="p-4 text-center">
-            <h3 className="text-lg font-semibold">{agent.stats.averageRating}/5.0</h3>
+            <h3 className="text-lg font-semibold">
+              {agent.stats.averageRating}/5.0
+            </h3>
             <p className="text-sm text-muted-foreground">Client Rating</p>
           </Card>
         </div>
@@ -131,7 +153,9 @@ export default function AgentProfile() {
                     />
                     <div className="p-4">
                       <h3 className="font-semibold">{listing.title}</h3>
-                      <p className="text-muted-foreground">{listing.location}</p>
+                      <p className="text-muted-foreground">
+                        {listing.location}
+                      </p>
                       <p className="text-lg font-semibold mt-2">
                         ${listing.price.toLocaleString()}
                       </p>
@@ -145,7 +169,9 @@ export default function AgentProfile() {
           <div className="space-y-6">
             {/* Contact Info */}
             <Card className="p-6">
-              <h2 className="text-xl font-semibold mb-4">Contact Information</h2>
+              <h2 className="text-xl font-semibold mb-4">
+                Contact Information
+              </h2>
               <div className="space-y-4">
                 <div>
                   <label className="text-sm text-muted-foreground">Phone</label>
@@ -156,7 +182,9 @@ export default function AgentProfile() {
                   <p>{agent.email}</p>
                 </div>
                 <div>
-                  <label className="text-sm text-muted-foreground">Office</label>
+                  <label className="text-sm text-muted-foreground">
+                    Office
+                  </label>
                   <p>{agent.location}</p>
                 </div>
               </div>

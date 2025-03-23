@@ -21,6 +21,12 @@ import About from "./Pages/About";
 import Map from "./components/common/Map";
 import Nearby from "./Pages/Nearbylocation";
 import { MarketInsights } from "./Pages/MarketInsights";
+import AgentProfile from "./Pages/AgentProfile";
+import ChatBot from "./Pages/chatbot";
+import { TermsAndServices } from "./Pages/Termandservices";
+import AddProperty from "./Pages/AddProperty";
+import Blog from "./Pages/Blog";
+import PrivacyPolicy from "./Pages/PrivacyPolicy";
 
 const App = () => {
   const queryClient = new QueryClient();
@@ -37,13 +43,22 @@ const App = () => {
         <QueryClientProvider client={queryClient}>
           <Navbar />
           <Routes>
+          <Route path="/blog" element={<Blog />} />
+
             <Route path="/" element={<HeroSection />} />
+            <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="/market-insights" element={<MarketInsights />} />
+            <Route path="/chat" element={<ChatBot/>} />
             <Route path="/about" element={<About />} />
             <Route path="/nearby" element={<Nearby />} />
+            <Route path="/call" element={<AgentProfile />} />
+            <Route path="/terms" element={<TermsAndServices />} />
+            <Route path="/add-property" element={<AddProperty />} />
+
             <Route path="/properties">
               <Route index element={<Browse />} />
               <Route path=":propertyId" element={<Property />} />
+
             </Route>
             <Route
               path="/favorites"

@@ -7,6 +7,7 @@ import { truncate } from "lodash";
 import { useNavigate } from "react-router-dom";
 import Heart from "./Heart";
 import axios from "axios";
+import ChatBot from "./chatbot";
 
 const PropertyCard = ({ card }) => {
   const navigate = useNavigate();
@@ -43,10 +44,18 @@ const PropertyCard = ({ card }) => {
   return (
     <Card className="overflow-hidden group" onClick={() => navigate(`../properties/${card?.id}`)}>
       <div className="relative">
+      <button
+          onClick={() => setIsFavorite(card.id)}
+          className="absolute top-4 right-4 p-2 rounded-full shadow-md   duration-200object-cover group-hover:scale-110 transition-transform duration-300"
+        >
+          <Heart
+            className={`w-5 h-5 ${isFavorite ? 'fill-red-500 stroke-red-500' : 'stroke-gray-600'}`}
+          />
+          </button>
         <img
           src={card?.image || "placeholder.jpg"}
           alt={card?.title || "Property Image"}
-          className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300"
+          className="w-full h-64 "
         />
         <div className="absolute top-4 left-4 flex gap-2">
           {card?.facilities && (
@@ -71,6 +80,7 @@ const PropertyCard = ({ card }) => {
             View Details
           </Button>
         </div>
+          <ChatBot/>
       </CardContent>
     </Card>
   );

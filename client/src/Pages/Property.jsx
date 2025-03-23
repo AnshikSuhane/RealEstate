@@ -85,7 +85,7 @@ const Property = () => {
       <div className="max-w-6xl mx-auto px-4">
         <div className="bg-white rounded-2xl shadow-xl overflow-hidden relative">
           <div className="absolute top-4 right-4">
-            <Heart id={id} />
+            <Heart id={id}  />
           </div>
 
           {/* Property Image */}

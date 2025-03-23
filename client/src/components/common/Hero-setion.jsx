@@ -34,6 +34,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { useNavigate } from 'react-router-dom';
+import ChatBot from '@/Pages/chatbot';
 
 const backgroundImages = [
   "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&q=80&w=2000",
@@ -88,7 +89,6 @@ const featuredProperties = [
 
 export function HeroSection() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [isChatOpen, setIsChatOpen] = useState(false); // State to manage chat visibility
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -98,9 +98,6 @@ export function HeroSection() {
     return () => clearInterval(interval);
   }, []);
 
-  const toggleChat = () => {
-    setIsChatOpen(!isChatOpen); // Toggle chat visibility
-  };
 
   return (
     <div className="relative">
@@ -456,11 +453,11 @@ export function HeroSection() {
               Start your journey today!
             </p>
             <div className="flex justify-center gap-4">
-              <Button size="lg" variant="secondary">
+              <Button size="lg" variant="secondary"onClick={()=>navigate("/properties")}>
                 <Search className="mr-2 h-4 w-4" />
                 Start Searching
               </Button>
-              <Button variant="outline" size="lg" className="text-white border-white hover:bg-white/20">
+              <Button onClick={()=>navigate("/call")}  variant="outline" size="lg" className="text-white border-white hover:bg-white/20">
                 <Users className="mr-2 h-4 w-4" />
                 Contact Agent
               </Button>
@@ -470,41 +467,9 @@ export function HeroSection() {
       </div>
 
       {/* Chatbot Button */}
-      <div className="fixed bottom-6 right-6 z-50">
-        <Button
-          onClick={toggleChat}
-          size="icon"
-          className="rounded-full w-12 h-12 bg-blue-600 hover:bg-blue-700 shadow-lg"
-        >
-          <MessageCircle className="h-6 w-6 text-white" />
-        </Button>
-      </div>
+     
 
-      {/* Chatbot Modal */}
-      {isChatOpen && (
-        <div className="fixed bottom-24 right-6 z-50 w-96 bg-white rounded-lg shadow-lg p-4">
-          <div className="flex justify-between items-center mb-4">
-            <h3 className="text-lg font-semibold">Property Assistant</h3>
-            <Button
-              onClick={toggleChat}
-              size="icon"
-              variant="ghost"
-              className="rounded-full"
-            >
-              <X className="h-4 w-4" /> {/* Close icon */}
-            </Button>
-          </div>
-          <div className="h-64 overflow-y-auto mb-4">
-            <p className="text-sm text-gray-600">
-              Hi! I'm your PropertyFinder assistant. How can I help you today?
-            </p>
-          </div>
-          <Input
-            placeholder="Type your message..."
-            className="w-full"
-          />
-        </div>
-      )}
+      <ChatBot className="fixed"/>
     </div>
   );
 }

@@ -286,13 +286,8 @@ const Browse = () => {
   return (
     <div className="bg-white">
       <div className="flex justify-center items-center flex-col padding innerWidth gap-8">
-        {/* Search Component */}
+      
         <Search filter={filter} setFilter={setFilter} />
-
-        {/* Loading State (Optional) */}
-        {/* Loading State (Optional) */}
-
-        {/* Property Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
           {filteredProperties.map((property) => (
             <PropertyCard card={property} key={property.id} />

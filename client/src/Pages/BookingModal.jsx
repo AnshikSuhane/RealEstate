@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { UserDetailContext } from "@/context/userDetail";
 import { Button } from "@/components/ui/button";
+import ChatBot from "./chatbot";
 
 const BookingModal = ({ opened, setOpened, email, propertyId }) => {
   const [value, setValue] = useState("");
@@ -42,8 +43,8 @@ const BookingModal = ({ opened, setOpened, email, propertyId }) => {
 
   return (
     opened && (
-      <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-        <div className="bg-white p-6 rounded-lg shadow-lg">
+      <div className="fixed inset-0 flex items-center justify-center bg-opacity-50 transparrent">
+        <div className=" p-6 rounded-lg shadow-lg">
           <h2 className="text-lg font-bold mb-4">Select Your Visit Date</h2>
           <input
             type="date"
@@ -52,6 +53,7 @@ const BookingModal = ({ opened, setOpened, email, propertyId }) => {
             min={new Date().toISOString().split("T")[0]}
             className="border p-2 w-full"
           />
+          <ChatBot/>
           <div className="flex justify-end gap-2 mt-4">
             <button className="bg-gray-400 px-4 py-2 rounded" onClick={() => setOpened(false)}>Cancel</button>
             <button className="bg-blue-500 text-white px-4 py-2 rounded" disabled={loading} onClick={handleBooking}>

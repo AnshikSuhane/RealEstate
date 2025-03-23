@@ -129,3 +129,6 @@
   --shadow: 0px 23px 21px -8px rgba(136, 160, 255, 0.25);
 }
 
+.nav-link {
+  @apply inline-flex h-9 items-center justify-center rounded-md px-4 py-2 text-sm font-medium text-gray-700 transition-all hover:bg-gray-100 hover:text-gray-900 focus:bg-gray-200 focus:outline-none;
+}
