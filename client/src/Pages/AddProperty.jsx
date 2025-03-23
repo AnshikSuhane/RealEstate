@@ -1,4 +1,5 @@
 import { useState } from "react";
+import axios from "axios";
 
 const AddProperty = () => {
   const [formData, setFormData] = useState({
@@ -10,112 +11,147 @@ const AddProperty = () => {
     description: "",
   });
 
-  const [properties, setProperties] = useState([]);
-
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setProperties([...properties, formData]);
-    alert("Property added successfully!");
-    setFormData({
-      title: "",
-      location: "",
-      price: "",
-      type: "Apartment",
-      imageUrl: "",
-      description: "",
-    });
+    try {
+      await axios.post(
+        "https://realestate-3dcb7-default-rtdb.asia-southeast1.firebasedatabase.app/RealEstate/residency.json",
+        formData
+      );
+      alert("Property added successfully!");
+      setFormData({
+        title: "",
+        location: "",
+        price: "",
+        type: "Apartment",
+        imageUrl: "",
+        description: "",
+      });
+    } catch (error) {
+      console.error("Error adding property:", error);
+      alert("Failed to add property. Please try again.");
+    }
   };
 
   return (
-    <div className="max-w-lg mx-auto p-6 bg-white shadow-md rounded-lg">
-      <h2 className="text-2xl font-semibold mb-4">Add New Property</h2>
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <input
-          type="text"
-          name="title"
-          placeholder="Property Title"
-          value={formData.title}
-          onChange={handleChange}
-          className="w-full p-2 border rounded"
-          required
-        />
-        <input
-          type="text"
-          name="location"
-          placeholder="Location"
-          value={formData.location}
-          onChange={handleChange}
-          className="w-full p-2 border rounded"
-          required
-        />
-        <input
-          type="number"
-          name="price"
-          placeholder="Price ($)"
-          value={formData.price}
-          onChange={handleChange}
-          className="w-full p-2 border rounded"
-          required
-        />
-        <select
-          name="type"
-          value={formData.type}
-          onChange={handleChange}
-          className="w-full p-2 border rounded"
-        >
-          <option value="Apartment">Apartment</option>
-          <option value="House">House</option>
-          <option value="Villa">Villa</option>
-          <option value="Commercial">Commercial</option>
-        </select>
-        <input
-          type="url"
-          name="imageUrl"
-          placeholder="Image URL"
-          value={formData.imageUrl}
-          onChange={handleChange}
-          className="w-full p-2 border rounded"
-          required
-        />
-        <textarea
-          name="description"
-          placeholder="Description"
-          value={formData.description}
-          onChange={handleChange}
-          className="w-full p-2 border rounded"
-          rows="3"
-          required
-        />
-        <button
-          type="submit"
-          className="w-full bg-blue-600 text-white p-2 rounded hover:bg-blue-700"
-        >
-          Add Property
-        </button>
-      </form>
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-50 py-10">
+      <div className="max-w-2xl mx-auto p-8 bg-white rounded-2xl shadow-2xl">
+        <h2 className="text-3xl font-bold text-center text-gray-800 mb-8">
+          Add New Property
+        </h2>
+        <form onSubmit={handleSubmit} className="space-y-6">
+          {/* Title */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Property Title
+            </label>
+            <input
+              type="text"
+              name="title"
+              placeholder="Enter property title"
+              value={formData.title}
+              onChange={handleChange}
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+              required
+            />
+          </div>
 
-      {/* Displaying the added properties */}
-      <div className="mt-6">
-        <h3 className="text-xl font-semibold mb-3">Added Properties</h3>
-        {properties.length === 0 ? (
-          <p>No properties added yet.</p>
-        ) : (
-          <ul className="space-y-3">
-            {properties.map((property, index) => (
-              <li key={index} className="p-4 border rounded shadow">
-                <h4 className="font-bold">{property.title}</h4>
-                <p>{property.location} - ${property.price}</p>
-                <p>Type: {property.type}</p>
-                <img src={property.imageUrl} alt={property.title} className="w-full h-40 object-cover mt-2" />
-                <p className="mt-2">{property.description}</p>
-              </li>
-            ))}
-          </ul>
-        )}
+          {/* Location */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Location
+            </label>
+            <input
+              type="text"
+              name="location"
+              placeholder="Enter location"
+              value={formData.location}
+              onChange={handleChange}
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+              required
+            />
+          </div>
+
+          {/* Price */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Price ($)
+            </label>
+            <input
+              type="number"
+              name="price"
+              placeholder="Enter price"
+              value={formData.price}
+              onChange={handleChange}
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+              required
+            />
+          </div>
+
+          {/* Type */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Property Type
+            </label>
+            <select
+              name="type"
+              value={formData.type}
+              onChange={handleChange}
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+            >
+              <option value="Apartment">Apartment</option>
+              <option value="House">House</option>
+              <option value="Villa">Villa</option>
+              <option value="Commercial">Commercial</option>
+            </select>
+          </div>
+
+          {/* Image URL */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Image URL
+            </label>
+            <input
+              type="url"
+              name="imageUrl"
+              placeholder="Enter image URL"
+              value={formData.imageUrl}
+              onChange={handleChange}
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+              required
+            />
+          </div>
+
+          {/* Description */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Description
+            </label>
+            <textarea
+              name="description"
+              placeholder="Enter property description"
+              value={formData.description}
+              onChange={handleChange}
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+              rows="4"
+              required
+            />
+          </div>
+
+          {/* Submit Button */}
+          <div>
+            <button
+              type="submit"
+              className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 rounded-lg font-semibold hover:from-blue-700 hover:to-purple-700 transition-all"
+            >
+              Add Property
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   );

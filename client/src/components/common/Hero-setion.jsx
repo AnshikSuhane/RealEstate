@@ -332,9 +332,9 @@ export function HeroSection() {
       <div className="relative bg-primary/5 py-24">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <Badge variant="outline" className="mb-4">Testimonials</Badge>
-            <h2 className="text-3xl font-bold mb-4">What Our Clients Say</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
+            <Badge variant="outline" className="mb-4 p-2 text-white text-xl">Testimonials</Badge>
+            <h2 className="text-3xl font-bold mb-4 text-yellow-200">What Our Clients Say</h2>
+            <p className="text-sky-400 max-w-2xl mx-auto text-[25px]">
               Hear from our satisfied customers about their experience finding their dream homes through our platform.
             </p>
           </div>
