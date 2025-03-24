@@ -14,7 +14,7 @@ const Property = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [modalOpened, setModalOpened] = useState(false);
-  const navigate=useNavigate()
+  const navigate = useNavigate();
 
   const userContext = useContext(UserDetailContext);
   const token = userContext?.userDetails?.token || "";
@@ -67,7 +67,7 @@ const Property = () => {
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <span className="text-blue-500 text-lg">  <PuffLoader color="#4066ff" size={80}/> </span>
+        <PuffLoader color="#4066ff" size={80} />
       </div>
     );
   }
@@ -81,60 +81,58 @@ const Property = () => {
   }
 
   return (
-    <div className="bg-gradient-to-b from-blue-50 to-white min-h-screen py-8">
-      <div className="max-w-6xl mx-auto px-4">
+    <div className="bg-gradient-to-b from-blue-50 to-white min-h-screen py-8 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto">
         <div className="bg-white rounded-2xl shadow-xl overflow-hidden relative">
           <div className="absolute top-4 right-4">
-            <Heart id={id}  />
+            <Heart id={id} />
           </div>
 
-          {/* Property Image */}
-          <div className="relative h-96 w-full overflow-hidden">
+          <div className="relative h-72 sm:h-96 w-full overflow-hidden">
             <img src={data?.image} alt="Property" className="w-full h-full object-cover" />
           </div>
 
-          {/* Content */}
-          <div className="p-6">
-            <h1 className="text-3xl font-bold text-blue-900">{data?.title}</h1>
+          <div className="p-4 sm:p-6">
+            <h1 className="text-2xl sm:text-3xl font-bold text-blue-900">{data?.title}</h1>
             <div className="text-lg font-bold text-orange-600 mt-2">${data?.price}</div>
 
-            {/* Facilities */}
-            <div className="mt-4 space-y-2">
+            <div className="mt-4 space-y-2 text-sm sm:text-base">
               <p><strong>Bathrooms:</strong> {data?.facilities?.bathrooms}</p>
               <p><strong>Parking:</strong> {data?.facilities?.parking}</p>
               <p><strong>Rooms:</strong> {data?.facilities?.bedrooms}</p>
             </div>
 
-            <p className="mt-4 text-gray-700">{data?.description}</p>
-            <p className="mt-2 text-gray-600">{data?.address}, {data?.city}, {data?.country}</p>
+            <p className="mt-4 text-gray-700 text-sm sm:text-base">{data?.description}</p>
+            <p className="mt-2 text-gray-600 text-sm sm:text-base">{data?.address}, {data?.city}, {data?.country}</p>
 
-            {/* Booking Section */}
-            <div className="mt-6">
+            <div className="mt-6 flex flex-col sm:flex-row gap-3">
               {bookings.some((booking) => booking.id === id) ? (
-                <div>
+                <div className="w-full">
                   <button
-                    className="w-full bg-red-500 text-white py-2 rounded mt-2"
+                    className="w-full bg-red-500 text-white py-2 rounded"
                     onClick={cancelBooking}
                   >
                     Cancel Booking
                   </button>
-                  <p className="text-center text-gray-600 mt-2">
+                  <p className="text-center text-gray-600 mt-2 text-sm">
                     Your visit is booked for: <strong>{bookings.find((b) => b.id === id)?.date}</strong>
                   </p>
                 </div>
               ) : (
-                <div className="flex gap-2">
-                <button
-                  className="w-48 bg-blue-600 text-white py-2 rounded mt-2"
-                  onClick={() => setModalOpened(true)}
-                >
-                  Book Your Visit
-                </button>
-                <Button onClick={()=>navigate("/nearby")} className="w-48 bg-blue-600 text-white py-2 rounded mt-2">
-                  Nearby Locations
-                </Button>
-              </div>
-              
+                <>
+                  <button
+                    className="w-full sm:w-48 bg-blue-600 text-white py-2 rounded"
+                    onClick={() => setModalOpened(true)}
+                  >
+                    Book Your Visit
+                  </button>
+                  <Button
+                    onClick={() => navigate("/nearby")}
+                    className="w-full sm:w-48 bg-blue-600 text-white py-2 rounded"
+                  >
+                    Nearby Locations
+                  </Button>
+                </>
               )}
             </div>
           </div>

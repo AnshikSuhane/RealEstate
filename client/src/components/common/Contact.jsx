@@ -1,4 +1,3 @@
-
 import { MapPin, Phone, Mail } from 'lucide-react';
 import { Input } from '../ui/input';
 import { Button } from '../ui/button';
@@ -7,11 +6,11 @@ import ChatBot from '@/Pages/chatbot';
 
 export default function Contact() {
   return (
-    <div className="py-16">
-      <div className="container mx-auto px-4">
-        <h1 className="text-4xl font-bold mb-8">Contact Us</h1>
+    <div className="py-16 px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto max-w-7xl">
+        <h1 className="text-4xl font-bold mb-8 text-center">Contact Us</h1>
         
-        <div className="grid md:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           <div>
             <h2 className="text-2xl font-semibold mb-6">Get in Touch</h2>
             <p className="text-muted-foreground mb-8">
@@ -20,7 +19,7 @@ export default function Contact() {
             </p>
             
             <form className="space-y-6">
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="text-sm font-medium mb-2 block">First Name</label>
                   <Input placeholder="John" />
@@ -54,7 +53,7 @@ export default function Contact() {
           </div>
           
           <div>
-            <div className="bg-card rounded-lg p-8 mb-8">
+            <div className="bg-card rounded-lg p-6 sm:p-8 mb-8">
               <h2 className="text-2xl font-semibold mb-6">Contact Information</h2>
               <div className="space-y-4">
                 <div className="flex items-start space-x-4">
@@ -82,23 +81,22 @@ export default function Contact() {
                     <p className="font-medium">Email</p>
                     <p className="text-muted-foreground">info@propertyfinder.com</p>
                   </div>
-                
                 </div>
               </div>
             </div>
             
-            <div className="bg-card rounded-lg p-8">
+            <div className="bg-card rounded-lg p-6 sm:p-8">
               <h2 className="text-2xl font-semibold mb-6">Office Hours</h2>
               <div className="space-y-2">
-                <div className="flex justify-between">
+                <div className="flex justify-between text-sm sm:text-base">
                   <span>Monday - Friday</span>
                   <span>9:00 AM - 6:00 PM</span>
                 </div>
-                <div className="flex justify-between">
+                <div className="flex justify-between text-sm sm:text-base">
                   <span>Saturday</span>
                   <span>10:00 AM - 4:00 PM</span>
                 </div>
-                <div className="flex justify-between">
+                <div className="flex justify-between text-sm sm:text-base">
                   <span>Sunday</span>
                   <span>Closed</span>
                 </div>

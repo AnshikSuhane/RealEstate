@@ -57,14 +57,14 @@ export default function ChatBot() {
       {/* Chat Toggle Button */}
       <Button
         onClick={toggleChat}
-        className="fixed bottom-6 right-6 z-50 bg-primary text-white px-4 py-2 rounded-full shadow-lg"
+        className="fixed bottom-6 right-6 z-50 bg-primary text-white px-4 py-2 rounded-full shadow-lg hover:bg-primary/90"
       >
         Chat with Us
       </Button>
 
       {/* Chat Window */}
       {isOpen && (
-        <div className="fixed bottom-24 right-6 z-50 w-96 bg-white rounded-lg shadow-lg p-4">
+        <div className="fixed bottom-24 right-6 z-50 w-80 sm:w-96 bg-white rounded-lg shadow-lg p-4">
           {/* Chat Header */}
           <div className="flex justify-between items-center mb-4">
             <h3 className="text-lg font-semibold">Property Assistant</h3>

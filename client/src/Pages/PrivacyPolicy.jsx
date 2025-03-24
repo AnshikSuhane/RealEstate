@@ -1,5 +1,3 @@
-
-
 import { Card } from "@/components/ui/card";
 import { Shield, Lock, Eye, Database, Bell, Trash2 } from 'lucide-react';
 
@@ -74,14 +72,16 @@ export default function PrivacyPolicy() {
   ];
 
   return (
-    <div className="py-16">
-      <div className="container mx-auto px-4">
+    <div className="py-12 sm:py-16">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-4xl font-bold mb-4">Privacy Policy</h1>
+          {/* Header Section */}
+          <h1 className="text-3xl sm:text-4xl font-bold mb-4">Privacy Policy</h1>
           <p className="text-muted-foreground mb-8">
             Last updated: March 20, 2024
           </p>
 
+          {/* Introduction Section */}
           <div className="prose prose-neutral dark:prose-invert mb-8">
             <p className="text-muted-foreground">
               At PropertyFinder, we take your privacy seriously. This Privacy Policy explains how we collect,
@@ -91,20 +91,23 @@ export default function PrivacyPolicy() {
             </p>
           </div>
 
-          <div className="space-y-8">
+          {/* Privacy Sections */}
+          <div className="space-y-6 sm:space-y-8">
             {sections.map((section, index) => (
-              <Card key={index} className="p-6">
+              <Card key={index} className="p-4 sm:p-6">
                 <div className="flex items-start gap-4">
+                  {/* Icon */}
                   <div className="p-3 bg-primary/10 rounded-lg">
-                    <section.icon className="h-6 w-6 text-primary" />
+                    <section.icon className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
                   </div>
+                  {/* Content */}
                   <div className="flex-1">
-                    <h2 className="text-xl font-semibold mb-4">{section.title}</h2>
+                    <h2 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4">{section.title}</h2>
                     <ul className="space-y-2">
                       {section.content.map((item, itemIndex) => (
-                        <li key={itemIndex} className="flex items-center gap-2 text-muted-foreground">
-                          <div className="h-1.5 w-1.5 bg-primary rounded-full" />
-                          {item}
+                        <li key={itemIndex} className="flex items-start gap-2 text-muted-foreground">
+                          <div className="h-1.5 w-1.5 bg-primary rounded-full mt-2" />
+                          <span>{item}</span>
                         </li>
                       ))}
                     </ul>
@@ -114,8 +117,9 @@ export default function PrivacyPolicy() {
             ))}
           </div>
 
-          <div className="mt-12 p-6 bg-muted rounded-lg">
-            <h2 className="text-xl font-semibold mb-4">Contact Us</h2>
+          {/* Contact Section */}
+          <div className="mt-10 sm:mt-12 p-4 sm:p-6 bg-muted rounded-lg">
+            <h2 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4">Contact Us</h2>
             <p className="text-muted-foreground mb-4">
               If you have any questions or suggestions about our Privacy Policy, do not hesitate
               to contact us at:
@@ -127,7 +131,8 @@ export default function PrivacyPolicy() {
             </ul>
           </div>
 
-          <div className="mt-8 text-sm text-muted-foreground text-center">
+          {/* Footer Note */}
+          <div className="mt-6 sm:mt-8 text-sm text-muted-foreground text-center">
             <p>
               This privacy policy was last updated on March 20, 2024.
               We reserve the right to make changes to this policy at any time.

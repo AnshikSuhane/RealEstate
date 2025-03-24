@@ -43,23 +43,32 @@ const BookingModal = ({ opened, setOpened, email, propertyId }) => {
 
   return (
     opened && (
-      <div className="fixed inset-0 flex items-center justify-center bg-opacity-50 transparrent">
-        <div className=" p-6 rounded-lg shadow-lg">
-          <h2 className="text-lg font-bold mb-4">Select Your Visit Date</h2>
+      <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 p-4">
+        <div className="bg-white rounded-lg shadow-lg w-full max-w-md p-6">
+          <h2 className="text-lg sm:text-xl font-bold mb-4">Select Your Visit Date</h2>
           <input
             type="date"
             value={value}
             onChange={(e) => setValue(e.target.value)}
             min={new Date().toISOString().split("T")[0]}
-            className="border p-2 w-full"
+            className="border p-2 w-full rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
           />
-          <ChatBot/>
+          <ChatBot />
           <div className="flex justify-end gap-2 mt-4">
-            <button className="bg-gray-400 px-4 py-2 rounded" onClick={() => setOpened(false)}>Cancel</button>
-            <button className="bg-blue-500 text-white px-4 py-2 rounded" disabled={loading} onClick={handleBooking}>
+            <Button
+              variant="secondary"
+              onClick={() => setOpened(false)}
+              className="px-4 py-2"
+            >
+              Cancel
+            </Button>
+            <Button
+              onClick={handleBooking}
+              disabled={loading}
+              className="px-4 py-2"
+            >
               {loading ? "Booking..." : "Book Visit"}
-            </button>
-            
+            </Button>
           </div>
         </div>
       </div>

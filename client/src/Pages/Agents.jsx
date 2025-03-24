@@ -53,34 +53,36 @@ const agents = [
 export default function Agents() {
   return (
     <div className="py-8">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header Section */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8">
           <div>
-            <h1 className="text-3xl font-bold mb-2">Our Real Estate Agents</h1>
-            <p className="text-muted-foreground">
+            <h1 className="text-2xl sm:text-3xl font-bold mb-2">Our Real Estate Agents</h1>
+            <p className="text-sm sm:text-base text-muted-foreground">
               Find the perfect agent to help you with your real estate journey
             </p>
           </div>
-          <div className="flex gap-4 w-full md:w-auto">
+          <div className="flex flex-col sm:flex-row gap-4 w-full md:w-auto">
             <div className="relative flex-1 md:w-64">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
               <Input
                 placeholder="Search agents..."
-                className="pl-10"
+                className="pl-10 w-full"
               />
             </div>
-            <Button variant="outline">Filter</Button>
+            <Button variant="outline" className="w-full sm:w-auto">Filter</Button>
           </div>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        {/* Agents Grid */}
+        <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {agents.map((agent) => (
-            <Card key={agent.id} className="p-6">
+            <Card key={agent.id} className="p-6 hover:shadow-lg transition-shadow">
               <div className="text-center mb-4">
                 <img
                   src={agent.image}
                   alt={agent.name}
-                  className="w-24 h-24 rounded-full mx-auto mb-4 object-cover"
+                  className="w-20 h-20 sm:w-24 sm:h-24 rounded-full mx-auto mb-4 object-cover"
                 />
                 <h3 className="font-semibold text-lg">{agent.name}</h3>
                 <p className="text-sm text-muted-foreground">{agent.title}</p>

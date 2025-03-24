@@ -34,9 +34,11 @@ export function Guide() {
   ];
 
   return (
-    <div className="container py-8">
-      <h1 className="text-4xl font-bold mb-8">Property Buying Guides</h1>
+    <div className="container py-8 px-4 sm:px-6 lg:px-8">
+      {/* Header */}
+      <h1 className="text-3xl sm:text-4xl font-bold mb-8">Property Buying Guides</h1>
 
+      {/* Guide Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
         {guides.map((guide) => {
           const Icon = guide.icon;
@@ -75,7 +77,8 @@ export function Guide() {
         })}
       </div>
 
-      <div className="bg-blue-50 rounded-lg p-8 mb-12">
+      {/* Popular Topics Section */}
+      <div className="bg-blue-50 rounded-lg p-6 sm:p-8 mb-12">
         <h2 className="text-2xl font-bold mb-4">Popular Topics</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {[
@@ -92,13 +95,14 @@ export function Guide() {
               className="flex items-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow"
             >
               <FileText className="h-5 w-5 text-blue-600 mr-2" />
-              <span>{topic}</span>
+              <span className="text-sm sm:text-base">{topic}</span>
             </Link>
           ))}
         </div>
       </div>
 
-      <div className="bg-white rounded-lg shadow-lg p-8">
+      {/* FAQ Section */}
+      <div className="bg-white rounded-lg shadow-lg p-6 sm:p-8">
         <h2 className="text-2xl font-bold mb-6">Frequently Asked Questions</h2>
         <div className="space-y-6">
           {[
@@ -116,8 +120,8 @@ export function Guide() {
             }
           ].map((faq) => (
             <div key={faq.question} className="border-b pb-6">
-              <h3 className="font-semibold mb-2">{faq.question}</h3>
-              <p className="text-gray-600">{faq.answer}</p>
+              <h3 className="font-semibold mb-2 text-lg sm:text-xl">{faq.question}</h3>
+              <p className="text-gray-600 text-sm sm:text-base">{faq.answer}</p>
             </div>
           ))}
         </div>

@@ -98,7 +98,6 @@ export function HeroSection() {
     return () => clearInterval(interval);
   }, []);
 
-
   return (
     <div className="relative">
       {/* Dynamic Hero Background */}
@@ -118,49 +117,45 @@ export function HeroSection() {
 
       {/* Hero Content */}
       <div className="relative">
-        <div className="container mx-auto px-4 py-24 lg:py-32">
+        <div className="container mx-auto px-4 py-16 lg:py-32">
           <div className="max-w-4xl">
-            <div className="flex items-center gap-2 mb-6">
-              <Badge variant="secondary" className="text-lg px-4 py-1">
+            <div className="flex flex-wrap items-center gap-2 mb-6">
+              <Badge variant="secondary" className="text-sm md:text-lg px-3 md:px-4 py-1">
                 #1 Real Estate Platform
               </Badge>
-              <Badge variant="outline" className="text-white border-white/20">
+              <Badge variant="outline" className="text-sm md:text-lg text-white border-white/20">
                 Trusted by 10,000+ Clients
               </Badge>
             </div>
-            
-            <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
               Discover Your Perfect{' '}
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">
                 Dream Home
               </span>{' '}
               Today
             </h1>
-            
-            <p className="text-xl text-gray-200 mb-8 max-w-2xl leading-relaxed">
+
+            <p className="text-base sm:text-lg md:text-xl text-gray-200 mb-8 max-w-2xl leading-relaxed">
               Join millions of happy homeowners who found their perfect property through our platform. 
               Expert guidance, premium listings, and a seamless experience await you.
             </p>
 
-            <div className="flex gap-4 mb-12">
+            <div className="flex flex-col sm:flex-row gap-4 mb-12">
               <Button size="lg" className="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600">
                 <Search className="mr-2 h-5 w-5" />
-                <a href="/search">
-                Start Your Search
-                </a>
+                <a href="/search">Start Your Search</a>
               </Button>
               <Button size="lg" variant="outline" className="text-white border-white/20 hover:bg-white/10">
                 <PlayCircle className="mr-2 h-5 w-5" />
-                <a href="https://youtu.be/C0l8V6NZIb4?si=Vx9UN63vLwb2__up">
-                Watch Video Tour
-                </a>
+                <a href="https://youtu.be/C0l8V6NZIb4?si=Vx9UN63vLwb2__up">Watch Video Tour</a>
               </Button>
             </div>
 
             {/* Search Box */}
-            <div className="bg-white/95 backdrop-blur-sm p-8 rounded-xl shadow-2xl mb-16">
-              <div className="grid gap-6">
-                <div className="grid md:grid-cols-3 gap-4">
+            <div className="bg-white/95 backdrop-blur-sm p-6 md:p-8 rounded-xl shadow-2xl mb-16">
+              <div className="grid gap-4 md:gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   <div className="relative">
                     <MapPin className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
                     <Input
@@ -195,7 +190,7 @@ export function HeroSection() {
                     </SelectContent>
                   </Select>
                 </div>
-                <div className="grid md:grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   <Select>
                     <SelectTrigger>
                       <SelectValue placeholder="Bedrooms" />
@@ -227,32 +222,32 @@ export function HeroSection() {
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-white mb-16">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 text-white mb-16">
               <div className="text-center transform hover:scale-105 transition-transform duration-200">
-                <div className="bg-white/10 rounded-xl p-6 backdrop-blur-sm border border-white/20">
-                  <Building2 className="h-8 w-8 mx-auto mb-3" />
-                  <div className="text-3xl font-bold mb-1">1,500+</div>
+                <div className="bg-white/10 rounded-xl p-4 md:p-6 backdrop-blur-sm border border-white/20">
+                  <Building2 className="h-6 w-6 md:h-8 md:w-8 mx-auto mb-3" />
+                  <div className="text-2xl md:text-3xl font-bold mb-1">1,500+</div>
                   <div className="text-sm">Active Listings</div>
                 </div>
               </div>
               <div className="text-center transform hover:scale-105 transition-transform duration-200">
-                <div className="bg-white/10 rounded-xl p-6 backdrop-blur-sm border border-white/20">
-                  <Users className="h-8 w-8 mx-auto mb-3" />
-                  <div className="text-3xl font-bold mb-1">2,000+</div>
+                <div className="bg-white/10 rounded-xl p-4 md:p-6 backdrop-blur-sm border border-white/20">
+                  <Users className="h-6 w-6 md:h-8 md:w-8 mx-auto mb-3" />
+                  <div className="text-2xl md:text-3xl font-bold mb-1">2,000+</div>
                   <div className="text-sm">Happy Clients</div>
                 </div>
               </div>
               <div className="text-center transform hover:scale-105 transition-transform duration-200">
-                <div className="bg-white/10 rounded-xl p-6 backdrop-blur-sm border border-white/20">
-                  <Home className="h-8 w-8 mx-auto mb-3" />
-                  <div className="text-3xl font-bold mb-1">150+</div>
+                <div className="bg-white/10 rounded-xl p-4 md:p-6 backdrop-blur-sm border border-white/20">
+                  <Home className="h-6 w-6 md:h-8 md:w-8 mx-auto mb-3" />
+                  <div className="text-2xl md:text-3xl font-bold mb-1">150+</div>
                   <div className="text-sm">Cities Covered</div>
                 </div>
               </div>
               <div className="text-center transform hover:scale-105 transition-transform duration-200">
-                <div className="bg-white/10 rounded-xl p-6 backdrop-blur-sm border border-white/20">
-                  <Shield className="h-8 w-8 mx-auto mb-3" />
-                  <div className="text-3xl font-bold mb-1">10+ Years</div>
+                <div className="bg-white/10 rounded-xl p-4 md:p-6 backdrop-blur-sm border border-white/20">
+                  <Shield className="h-6 w-6 md:h-8 md:w-8 mx-auto mb-3" />
+                  <div className="text-2xl md:text-3xl font-bold mb-1">10+ Years</div>
                   <div className="text-sm">Experience</div>
                 </div>
               </div>
@@ -278,21 +273,21 @@ export function HeroSection() {
       </div>
 
       {/* Featured Properties Section */}
-      <div className="relative bg-background/80 backdrop-blur-sm py-24">
+      <div className="relative bg-background/80 backdrop-blur-sm py-16 lg:py-24">
         <div className="container mx-auto px-4">
-          <div className="flex justify-between items-center mb-12">
+          <div className="flex flex-col sm:flex-row justify-between items-center mb-12">
             <div>
               <Badge variant="outline" className="mb-4">Featured Properties</Badge>
-              <h2 className="text-3xl font-bold">Exclusive Listings</h2>
+              <h2 className="text-2xl sm:text-3xl font-bold">Exclusive Listings</h2>
             </div>
             <Button variant="outline">
               <a href="/properties">
-              View All <ArrowRight className="ml-2 h-4 w-4" />
+                View All <ArrowRight className="ml-2 h-4 w-4" />
               </a>
             </Button>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8" onClick={() => navigate("/properties")}>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" onClick={() => navigate("/properties")}>
             {featuredProperties.map((property, index) => (
               <Card key={index} className="overflow-hidden group">
                 <div className="relative">
@@ -329,12 +324,12 @@ export function HeroSection() {
       </div>
 
       {/* Testimonials Section */}
-      <div className="relative bg-primary/5 py-24">
+      <div className="relative bg-primary/5 py-16 lg:py-24">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <Badge variant="outline" className="mb-4 p-2 text-white text-xl">Testimonials</Badge>
-            <h2 className="text-3xl font-bold mb-4 text-yellow-200">What Our Clients Say</h2>
-            <p className="text-sky-400 max-w-2xl mx-auto text-[25px]">
+            <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-yellow-200">What Our Clients Say</h2>
+            <p className="text-sky-400 max-w-2xl mx-auto text-lg sm:text-xl">
               Hear from our satisfied customers about their experience finding their dream homes through our platform.
             </p>
           </div>
@@ -342,7 +337,7 @@ export function HeroSection() {
           <Carousel className="w-full max-w-5xl mx-auto">
             <CarouselContent>
               {testimonials.map((testimonial, index) => (
-                <CarouselItem key={index}>
+                <CarouselItem key={index} className="sm:basis-1/2 lg:basis-1/3">
                   <Card className="bg-background/50 backdrop-blur-sm">
                     <CardContent className="p-8">
                       <div className="flex flex-col items-center text-center">
@@ -368,18 +363,18 @@ export function HeroSection() {
       </div>
 
       {/* Features Section */}
-      <div className="relative bg-background py-24">
+      <div className="relative bg-background py-16 lg:py-24">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <Badge variant="outline" className="mb-4">Why Choose Us</Badge>
-            <h2 className="text-4xl font-bold mb-4">Experience the Difference</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">Experience the Difference</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto text-lg sm:text-xl">
               We combine cutting-edge technology with personalized service to deliver 
               an unmatched real estate experience tailored to your needs.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 mb-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
             <Card className="transform hover:scale-105 transition-all duration-200">
               <CardContent className="pt-6">
                 <div className="text-center p-6">
@@ -422,7 +417,7 @@ export function HeroSection() {
           </div>
 
           {/* Additional Features */}
-          <div className="grid md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
             <div className="flex items-center space-x-3 p-4">
               <CheckCircle2 className="h-6 w-6 text-primary" />
               <span>Virtual Tours</span>
@@ -444,20 +439,20 @@ export function HeroSection() {
       </div>
 
       {/* Call to Action */}
-      <div className="relative bg-gradient-to-r from-blue-500 to-purple-500 py-24">
+      <div className="relative bg-gradient-to-r from-blue-500 to-purple-500 py-16 lg:py-24">
         <div className="container mx-auto px-4">
           <div className="text-center text-white">
-            <h3 className="text-3xl font-bold mb-4">Ready to Find Your Dream Home?</h3>
-            <p className="mb-8 max-w-2xl mx-auto text-white/90">
+            <h3 className="text-2xl sm:text-3xl font-bold mb-4">Ready to Find Your Dream Home?</h3>
+            <p className="mb-8 max-w-2xl mx-auto text-white/90 text-lg sm:text-xl">
               Join thousands of satisfied customers who found their perfect property through our platform.
               Start your journey today!
             </p>
-            <div className="flex justify-center gap-4">
-              <Button size="lg" variant="secondary"onClick={()=>navigate("/properties")}>
+            <div className="flex flex-col sm:flex-row justify-center gap-4">
+              <Button size="lg" variant="secondary" onClick={() => navigate("/properties")}>
                 <Search className="mr-2 h-4 w-4" />
                 Start Searching
               </Button>
-              <Button onClick={()=>navigate("/call")}  variant="outline" size="lg" className="text-white border-white hover:bg-white/20">
+              <Button onClick={() => navigate("/call")} variant="outline" size="lg" className="text-white border-white hover:bg-white/20">
                 <Users className="mr-2 h-4 w-4" />
                 Contact Agent
               </Button>
@@ -466,10 +461,8 @@ export function HeroSection() {
         </div>
       </div>
 
-      {/* Chatbot Button */}
-     
-
-      <ChatBot className="fixed"/>
+      {/* Chatbot */}
+      <ChatBot className="fixed bottom-4 right-4" />
     </div>
   );
 }

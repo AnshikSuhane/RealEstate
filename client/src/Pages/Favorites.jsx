@@ -47,12 +47,12 @@ const Favorites = () => {
   return (
     <div className="px-4 sm:px-6 lg:px-8 py-6">
       <Search filter={filter} setFilter={setFilter} />
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-6">
         {filteredProperties.length > 0 ? (
           filteredProperties.map((card) => (
             <Card
               key={card.id}
-              className="overflow-hidden transition-all duration-300 hover:shadow-lg cursor-pointer group w-full max-w-sm"
+              className="overflow-hidden transition-all duration-300 hover:shadow-lg cursor-pointer group w-full max-w-sm mx-auto"
               onClick={() => navigate(`/properties/${card.id}`)}
             >
               <div className="relative">

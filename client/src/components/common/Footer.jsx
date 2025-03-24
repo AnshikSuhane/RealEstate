@@ -4,12 +4,12 @@ import { Link } from 'react-router-dom'
 
 const Footer = () => {
   return (
-    <footer className='bg-gray-400 text-white'>
-        <div className='container py-12'>
-            <div className='grid grid-cols md:grid-cols-4 gap-8'>
-                <div>
-                    <h3 className='text-xl font-bold mb-4'>HomeHive</h3>
-                    <p className="text-gray-900 mb-4 text-xl">
+    <footer className="bg-gray-400 text-white">
+      <div className="container mx-auto py-12 px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+          <div>
+            <h3 className="text-xl font-bold mb-4">HomeHive</h3>
+            <p className="text-gray-900 mb-4 text-lg">
               Your trusted partner in finding the perfect property. We make property hunting simple, efficient, and enjoyable.
             </p>
             <div className="flex space-x-4">
@@ -31,62 +31,32 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2">
-              <li>
-                <Link to="/properties" className="text-gray-900 hover:text-white transition-colors font-semibold">
-                  Browse Properties
-                </Link>
-              </li>
-              <li>
-                <Link to="/map" className="text-gray-900 hover:text-white transition-colors font-semibold">
-                  Map View
-                </Link>
-              </li>
-              <li>
-                <Link to="/favorites" className="text-gray-900 hover:text-white transition-colors font-semibold">
-                  Saved Properties
-                </Link>
-              </li>
-              <li>
-                <Link to="/emi" className="text-gray-900 hover:text-white transition-colors font-semibold">
-                  Mortgage Calculator
-                </Link>
-              </li>
-              <li>
-                <Link to="/market-insights" className="text-gray-900 hover:text-white transition-colors  font-semibold">
-                  Market Insights
-                </Link>
-              </li>
+              {["properties", "map", "favorites", "emi", "market-insights"].map((link) => (
+                <li key={link}>
+                  <Link
+                    to={`/${link}`}
+                    className="text-gray-900 hover:text-white transition-colors font-semibold block"
+                  >
+                    {link.replace("-", " ").replace(/\b\w/g, (c) => c.toUpperCase())}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
           <div>
             <h3 className="text-lg font-semibold mb-4">Resources</h3>
             <ul className="space-y-2">
-              <li>
-                <Link to="/blog" className="text-gray-900 hover:text-white transition-colors font-semibold">
-                  Blog
-                </Link>
-              </li>
-              <li>
-                <Link to="/guides" className="text-gray-900 hover:text-white transition-colors  font-semibold">
-                  Buying Guides
-                </Link>
-              </li>
-              <li>
-                <Link to="/faq" className="text-gray-900 hover:text-white transition-colors  font-semibold">
-                  FAQ
-                </Link>
-              </li>
-              <li>
-                <Link to="/terms" className="text-gray-900 hover:text-white transition-colors  font-semibold">
-                  Terms of Service
-                </Link>
-              </li>
-              <li>
-                <Link to="/privacy" className="text-gray-900 hover:text-white transition-colors font-semibold">
-                  Privacy Policy
-                </Link>
-              </li>
+              {["blog", "guides", "faq", "terms", "privacy"].map((link) => (
+                <li key={link}>
+                  <Link
+                    to={`/${link}`}
+                    className="text-gray-900 hover:text-white transition-colors font-semibold block"
+                  >
+                    {link === "guides" ? "Buying Guides" : link.replace(/\b\w/g, (c) => c.toUpperCase())}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -113,9 +83,10 @@ const Footer = () => {
           </div>
         </div>
       </div>
+      
       <div className="border-t border-gray-900">
-        <div className="container py-4">
-          <p className="text-center text-gray-900">
+        <div className="container py-4 text-center">
+          <p className="text-gray-900">
             © {new Date().getFullYear()} PropertyFinder. All rights reserved.
           </p>
         </div>

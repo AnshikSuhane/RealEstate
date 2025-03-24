@@ -27,13 +27,13 @@ const EmiCalculator = () => {
 
   return (
     <div className="container py-8">
-      <ChatBot/>
-      <div className="max-w-3xl mx-auto">
+      <ChatBot />
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center mb-8">
           <Calculator className="h-8 w-8 mr-3 text-blue-600" />
-          <h1 className="text-4xl font-bold">Mortgage Calculator</h1>
+          <h1 className="text-3xl sm:text-4xl font-bold">Mortgage Calculator</h1>
         </div>
-        <div className="bg-white rounded-lg shadow-lg p-8">
+        <div className="bg-white rounded-lg shadow-lg p-6 sm:p-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -88,12 +88,14 @@ const EmiCalculator = () => {
             </div>
           </div>
           <div className="mt-8">
-            <Button onClick={calculateEmi}>Calculate Monthly Payment</Button>
+            <Button onClick={calculateEmi} className="w-full sm:w-auto">
+              Calculate Monthly Payment
+            </Button>
           </div>
           {monthlyPayment && (
             <div className="mt-8 p-6 bg-blue-50 rounded-lg">
               <h3 className="text-xl font-semibold mb-4">Monthly Payment Breakdown</h3>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                 <div className="bg-white p-4 rounded-lg shadow">
                   <p className="text-sm text-gray-600">Principal & Interest</p>
                   <p className="text-2xl font-bold">${monthlyPayment.toFixed(2)}</p>
@@ -115,7 +117,7 @@ const EmiCalculator = () => {
           )}
         </div>
 
-        <div className="mt-8 bg-white rounded-lg shadow-lg p-8">
+        <div className="mt-8 bg-white rounded-lg shadow-lg p-6 sm:p-8">
           <h2 className="text-2xl font-bold mb-4">Tips for Home Buyers</h2>
           <ul className="space-y-4">
             <li className="flex items-start">

@@ -56,20 +56,22 @@ export default function AgentProfile() {
     <div className="py-8">
       <div className="container mx-auto px-4">
         {/* Agent Header */}
-        <div className="grid md:grid-cols-3 gap-8 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           <div className="md:col-span-2">
-            <div className="flex items-start space-x-6">
+            <div className="flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6">
               <img
                 src={agent.image}
                 alt={agent.name}
                 className="w-32 h-32 rounded-full object-cover"
               />
               <div>
-                <h1 className="text-3xl font-bold mb-2">{agent.name}</h1>
-                <p className="text-xl text-muted-foreground mb-4">
+                <h1 className="text-2xl sm:text-3xl font-bold mb-2">
+                  {agent.name}
+                </h1>
+                <p className="text-lg sm:text-xl text-muted-foreground mb-4">
                   {agent.title}
                 </p>
-                <div className="flex items-center space-x-4 text-sm">
+                <div className="flex flex-col sm:flex-row sm:items-center space-y-2 sm:space-y-0 sm:space-x-4 text-sm">
                   <div className="flex items-center">
                     <MapPin className="h-4 w-4 mr-1" />
                     {agent.location}
@@ -102,7 +104,7 @@ export default function AgentProfile() {
             </Button>
           </div>
         </div>
-      
+
         {/* Agent Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
           <Card className="p-4 text-center">
@@ -132,7 +134,7 @@ export default function AgentProfile() {
         </div>
 
         {/* Agent Details */}
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="md:col-span-2 space-y-8">
             {/* Bio */}
             <Card className="p-6">
@@ -143,7 +145,7 @@ export default function AgentProfile() {
             {/* Recent Listings */}
             <div>
               <h2 className="text-xl font-semibold mb-4">Recent Listings</h2>
-              <div className="grid md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {agent.recentListings.map((listing) => (
                   <Card key={listing.id} className="overflow-hidden">
                     <img
